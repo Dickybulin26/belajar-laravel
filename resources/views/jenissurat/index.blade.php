@@ -24,8 +24,8 @@
             <tbody>
                 @foreach($jenis_surat as $js)
                 <tr>
-                    <td>#</td>
-                    <td>{{$js-jenis_surat}}</td>
+                    <td>{{$js->id_jenis_surat}}</td>
+                    <td>{{$js->jenis_surat}}</td>
                     <td>
                         <btn class="btn btn-danger">Hapus</btn>
                     </td>

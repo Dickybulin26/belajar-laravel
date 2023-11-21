@@ -25,6 +25,6 @@ Route::prefix('/jenissurat')->group(function(){
     //http://localhost:8000/jenissurat/
     Route::get('/',[JenisSuratController::class,'index'])->name('jenissurat.index');
     Route::get('/tambah',[JenisSuratController::class,'formTambah'])->name('jenissurat.tambah');
-
+    Route::post('/simpan',[JenisSuratController::class,'simpan'])->name('jenissurat.simpan');
 });
 

@@ -17,6 +17,7 @@
                         <div class="form-group">
                             <label for="">Nama Jenis Surat</label>
                             <input type="text" name="jenis_surat" class="form-control">
+                            @csrf
                         </div>
                     </div>
                 </div>
