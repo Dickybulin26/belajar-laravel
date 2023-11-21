@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JenisSuratController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TabeluserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,9 @@ Route::prefix('/jenissurat')->group(function(){
     Route::post('/simpan',[JenisSuratController::class,'simpan'])->name('jenissurat.simpan');
 });
 
+Route::prefix('/user')->group(function(){
+    //http://localhost:8000/user/
+    Route::get('/',[TabeluserController::class,'index'])->name('user.index');
+    Route::get('/tambahuser',[TabeluserController::class,'tambahuser'])->name('user.tambah');
+    Route::post('/saveuser',[TabeluserController::class,'saveuser'])->name('user.saveuser');
+});
