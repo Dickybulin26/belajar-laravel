@@ -27,6 +27,8 @@ Route::prefix('/jenissurat')->group(function(){
     Route::get('/',[JenisSuratController::class,'index'])->name('jenissurat.index');
     Route::get('/tambah',[JenisSuratController::class,'formTambah'])->name('jenissurat.tambah');
     Route::post('/simpan',[JenisSuratController::class,'simpan'])->name('jenissurat.simpan');
+    Route::get('/edit/{id}',[JenisSuratController::class,'formEdit'])->name('jenissurat.edit');
+    Route::post('/hapus',[JenisSuratController::class,'hapus'])->name('jenissurat.hapus');
 });
 
 Route::prefix('/user')->group(function(){
