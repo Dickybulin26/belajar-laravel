@@ -51,24 +51,42 @@
         swal.fire({
             title: 'Apakah anda ingin menghapus data ini?',
             showCancelButton: true,
-            confirmButtoText: 'Setuju',
+            confirmButtonText: 'Setuju',
             cancelButtonText: 'Batal',
             confirmButtonColor: 'red'
         }).then((result)=> {
             if(result.isConfirmed){
                 //* Jalankan ajax request untuk hapus
-                axios.post('hapus',{
-                    'id_jenis_surat' : idJnsSurat
+                axios.post('/jenissurat/hapus',{
+                    'id_jenis_surat' : idJnsSurat //* error di "id_jenis_surat"
                 }).then(function(response){
-
+                    if(response.status){
+                        swal.fire({
+                            title: 'Berhasil!',
+                            text: response.data.pesan,
+                            icon: 'success'
+                        }).then(()=>{
+                            window.location.reload();  
+                        });
+                    } else {
+                        alert(response.data.pesan);
+                    }
                 }).catch(function(error){
-                    
+                    swal.fire({
+                        title: 'Gagal!',
+                        text: 'Data Gagal Dihapus!',
+                        icon: 'error'
+                    });
                 });
             } else {
-
+                //* Close Modal Puppup Event
             }
         }).catch(function(error){
-
+            swal.fire({
+                        title: 'Gagal!',
+                        text: 'Data Gagal Dihapus!',
+                        icon: 'error'
+                    });
         });
     });
 </script>
